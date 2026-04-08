@@ -1,23 +1,20 @@
 import objetos.*
+import personas.*
+object bolichito {
+  var objetoEnVidriera= remera
+  var objetoEnMostrador= pelota
 
-object rosa  {
-    method leGusta(unaCosa){
-      return unaCosa.peso() <= 2000
-    }
-}
-object estefania {
-    method leGusta(unaCosa){
-      return unaCosa.color().esFuerte()
-    }
-}
-object luisa {
-    method leGusta(unaCosa){
-      return unaCosa.material().esbrillante()
-    }
-}
+  method cambiarObjetoEnVidriera(nuevoObjeto) {
+    objetoEnVidriera = nuevoObjeto
+  }
+  method cambiarObjetoEnMostrador(nuevoObjeto) {
+        objetoEnMostrador = nuevoObjeto
+  }
+  method esBrillante() {
+    return objetoEnVidriera.material().esbrillante() && objetoEnMostrador.material().esbrillante()
+  }
 
-object juan {
-    method leGusta(unaCosa){
-      return  not unaCosa.color().esFuerte() || unaCosa.peso().between(1200, 1800) 
-    }
+  method esMonocromatico() {
+    return objetoEnMostrador.color() == objetoEnVidriera.color()
+  }
 }
